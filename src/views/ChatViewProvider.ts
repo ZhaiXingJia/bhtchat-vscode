@@ -35,24 +35,24 @@ export class ChatViewProvider implements vscode.WebviewViewProvider {
     }
 
     private _getHtmlForWebview(webview: vscode.Webview): string {
+
+        // 样式文件
+		const mainStyleUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, "resources", "styles", "index.css"));
+        // 主要js文件
+		const mainScriptUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, "resources", "main.js"));
+
         return `<!DOCTYPE html>
         <html lang="en">
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <style>
-                html, body {
-                    height: 100%;
-                }
-                #app {
-                    height: 100%;
-                }
-            </style>
+            <link href="${mainStyleUri}" rel="stylesheet" type="text/css" />
         </head>
         <body>
             <div id="app">
                 <a href="https://testaizhishiku.bhuitong.com/AI/inside?ZhiShiKuKey=e9aea574-73af-47b1-baed-26998b8a1937&ZhiShiKuName=XJ%E9%97%AE%E7%AD%94%E5%BA%93&corpid=wpfG_gBwAAjrdsNU6BFwIS3Iz-p5xPSw" target="_blank">打开AI助手</a>
             </div>
+            <script src="${mainScriptUri}"></script>
         </body>
         </html>`;
     }
