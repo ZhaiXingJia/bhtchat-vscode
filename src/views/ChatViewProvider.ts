@@ -51,6 +51,10 @@ export class ChatViewProvider implements vscode.WebviewViewProvider {
         <body>
             <div id="app">
                 <a href="https://testaizhishiku.bhuitong.com/AI/inside?ZhiShiKuKey=e9aea574-73af-47b1-baed-26998b8a1937&ZhiShiKuName=XJ%E9%97%AE%E7%AD%94%E5%BA%93&corpid=wpfG_gBwAAjrdsNU6BFwIS3Iz-p5xPSw" target="_blank">打开AI助手</a>
+                <div class="footer-container">
+                    <textarea id="input-text" placeholder="请输入消息"></textarea>
+                    <button id="send-btn">发送</button>
+                </div>
             </div>
             <script src="${mainScriptUri}"></script>
         </body>
